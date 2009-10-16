@@ -1,0 +1,17 @@
+#summary Overview of the Alfresco Share Status component
+
+= Introduction =
+
+WIP
+
+
+= Details =
+
+== Deployment ==
+
+This component is delivered in two parts. First, an AMP file is used to extend the repository tier with the Status component's content model and web scripts. Second, a ZIP file is used to deliver the Surf components to the Surf tier (Alfresco Share or your own custom Surf app).
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
