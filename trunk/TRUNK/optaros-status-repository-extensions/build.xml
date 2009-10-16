@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Optaros Status Repository Extensions" default="deploy" basedir=".">
+	<property file="build.properties" />
+
+	<property name="project.dir" value="." />
+	<property name="build.dir" value="${project.dir}/build" />
+	<property name="project.name" value="optaros-status-repository-extensions" />
+	<property name="package.file.zip" value="${build.dir}/${project.name}.zip" />
+	<property name="package.file.jar" value="${build.dir}/${project.name}.jar" />
+	<property name="project.file.zip" value="${build.dir}/${project.name}-project.zip" />
+	<property name="package.file.amp" value="${build.dir}/${project.name}.amp" />
+	<property name="module.id" value="OptarosStatus" />
+	<property name="module.dir" value="/alfresco/module" />
+	<property name="source.dir" value="${project.dir}/src" />
+	<property name="config.dir" value="${project.dir}/config" />
+	<property name="web.dir" value="${source.dir}/web" />
+	<property name="extension.dir" value="/alfresco/extension" />
+	
+	<!-- used for AMP deployment via MMT -->
+	<path id="classpath.server">
+		<fileset dir="${alfresco.sdk.dir}/server" includes="**/*.jar" />
+	</path>
+	
+	<target name="clean" description="Removes all generated files">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="setup" description="Creates the ${build.dir} and ${bin.dir} directories">
+		<mkdir dir="${build.dir}" />
+	</target>
+
+	<target name="deploy" depends="deploy-amp" />		
+
+	<target name="zip-project" depends="setup" description="Zips the entire Eclipse project as-is into ${project.file.zip}">
+		<delete file="${project.file.zip}" />
+		<zip destfile="${project.file.zip}">
+			<zipfileset dir="${project.dir}" excludes="build/** bin/**" prefix="${project.name}-${label}" />
+		</zip>
+	</target>	
+	
+	<target name="package-amp" depends="setup" description="Packages the customizations as an Alfresco module in ${package.file.amp}">
+		<delete file="${package.file.amp}" />
+		<zip destfile="${package.file.amp}">
+			<zipfileset dir="${source.dir}/webscripts" prefix="webscripts" />
+			<zipfileset dir="${source.dir}/activities" prefix="activities" />
+			<zipfileset dir="${source.dir}/scripts/deploy" prefix="scripts" />
+			<zipfileset file="${config.dir}${module.dir}/${module.id}/module.properties" />						
+			<zipfileset file="${config.dir}${module.dir}/${module.id}/file-mapping.properties" />
+			<zipfileset file="${config.dir}${module.dir}/${module.id}/license.txt" />
+			<zipfileset dir="${config.dir}${module.dir}/${module.id}" prefix="config${module.dir}/${module.id}" />
+		</zip>
+	</target>
+	
+	<target name="install-amp" depends="package-amp" description="Uses the Alfresco MMT to install the AMP into ${alfresco.war.path}">
+	    <java dir="." fork="true" classname="org.alfresco.repo.module.tool.ModuleManagementTool">
+			<classpath refid="classpath.server"/>
+	    	<arg line="install ${package.file.amp} ${alfresco.war.path} -force -verbose"/>
+	    </java>
+	</target>
+	    
+	<target name="deploy-amp" depends="install-amp" description="Unzips the AMP'd WAR file into ${alfresco.web.dir}">
+		<unzip src="${alfresco.war.path}" dest="${alfresco.web.dir}" />
+	</target>
+</project>
