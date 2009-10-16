@@ -11,6 +11,8 @@ The Alfresco Share Status component makes it easier for your team to keep track 
 
 In addition, all status entries automatically post to the Alfresco activity service.
 
+In [http://labs.optaros.com/2009/02/19/enterprise-collaboration-alfresco-share-screencast-part-two this screencast] posted to [http://labs.optaros.com Optaros Labs], you can see how the component works.
+
 = Details =
 
 == Deployment ==
