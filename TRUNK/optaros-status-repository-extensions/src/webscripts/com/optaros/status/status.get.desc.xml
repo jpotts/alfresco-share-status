@@ -1,0 +1,13 @@
+<webscript>
+  <shortname>Get Status Entries</shortname>
+  <description>Returns status entries for the specified site and user</description>
+  <url>/status/site/{siteId}</url>
+  <url>/status/site/{siteId}/{user}</url>
+  <url>/status/history/site/{siteId}</url>
+  <url>/status/history/site/{siteId}/{user}</url>
+  <url>/status/history/global</url>
+  <url>/status/global</url>    
+  <format default="json">argument</format>
+  <authentication>user</authentication>
+  <transaction>none</transaction>
+</webscript>

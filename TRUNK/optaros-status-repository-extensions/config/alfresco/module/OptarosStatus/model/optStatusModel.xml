@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright 2009 Optaros, Inc.
+-->
+<!-- Definition of new Model -->
+<model name="optStatus:optStatusModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<!-- Optional meta-data about the model -->
+	<description>Optaros Status Model</description>
+	<author>Optaros</author>
+	<version>1.0</version>
+
+	<!-- Imports are required to allow references to definitions in other models -->
+	<imports>
+		<!-- Import Alfresco Dictionary Definitions -->
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<!-- Import Alfresco Content Domain Model Definitions -->
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+		<import uri="http://www.alfresco.org/model/system/1.0" prefix="sys" />
+	</imports>
+
+	<!-- Introduction of new namespaces defined by this model -->
+	<namespaces>
+		<namespace uri="http://www.optaros.com/model/status/1.0" prefix="optStatus" />
+	</namespaces>
+
+	<types>
+		<!-- Enterprise-wide generic document type -->
+		<type name="optStatus:status">
+			<title>Status Entry</title>
+			<parent>cm:content</parent>
+			<properties>
+				<property name="optStatus:siteId">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="optStatus:message">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="optStatus:prefix">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="optStatus:mood">
+					<type>d:int</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="optStatus:complete">
+					<type>d:boolean</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="optStatus:user">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>				
+			</properties>
+		</type>
+	</types>
+</model>
