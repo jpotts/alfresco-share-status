@@ -1,0 +1,34 @@
+#summary Overview of the Alfresco Share Status component
+#labels Featured,Phase-Deploy
+
+= Introduction =
+
+The Alfresco Share Status component makes it easier for your team to keep track of what everyone else is working on. The component provides three dashlets:
+
+ * My Current Activity: This dashlet lets you post a short blurb about what you're working on, stuck on, or thinking about. It also includes a "mood indicator" so you can let others know how you feel about writing documentation or whathaveyou
+ * Who's Doing What: This dashlet aggregates the status entries of others in your project or across all Share sites (available as a site dashlet and as a global dashlet)
+ * Status History: Users can mark an "I'm Done" checkbox which will send their status to an archive. The Status History is a collection of all archived status entries (available as a site dashlet and as a global dashlet)
+
+In addition, all status entries automatically post to the Alfresco activity service.
+
+= Details =
+
+== Deployment ==
+
+This component is delivered in two parts. First, an AMP file is used to extend the repository tier with the Status component's content model and web scripts. Second, a ZIP file is used to deliver the Surf components to the Surf tier (Alfresco Share or your own custom Surf app).
+
+Deployment, then, is a simple two-step process:
+ 1. Use the Alfresco MMT JAR to deploy the AMP to your Alfresco WAR. (If you have the SDK, and the source for this module, the Ant build has a "deploy" task that will do this for you).
+ 2. Unzip the Surf extensions into your Surf app web root. For example, this component will most commonly be used with Alfresco Share, so you would unzip the extensions over the top of your exploded Alfresco Share web application.
+
+The application server running Alfresco will need to be restarted to pick up the new AMP. The application server running your Surf app (Share, for example) does not need to be restarted. However, you will have to refresh the web scripts on the web script console (http://localhost:8080/share/service/).
+
+== Configuration ==
+
+Once installed there's nothing to configure. Just go into your dashboard (Global or Site) and add the dashlets.
+
+== How the data is stored ==
+
+All status entries are stored with their associated Share project, just like other Share tools do. If you navigate to the "Sites" directory in the repository, and then into your Share site folder, you'll see a folder called "optarosStatus". That's where the status data lives. Because it is part of your Share site data, it will inherit the permissions of the Share site.
+
+If you are using the component as part of a custom Surf app instead of Share, the component will still attempt to store the data as part of the Share site folder structure. It uses the Alfresco Site Service to figure this out, so you'll essentially need to create a dummy site using the Site Service API and then tell the component on the Surf tier what that dummy site name is. If you need an example of how to do this, let me know.
