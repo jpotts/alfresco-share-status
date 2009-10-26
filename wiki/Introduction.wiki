@@ -15,6 +15,21 @@ In [http://labs.optaros.com/2009/02/19/enterprise-collaboration-alfresco-share-s
 
 = Details =
 
+== Requirements ==
+
+This component has been tested on the following Alfresco releases:
+
+ * Community/Labs Releases
+  * 3.2r Community
+  * 3.2 Community
+  * 3D Labs
+ * Enterprise Releases
+  * 3.2 Enterprise Beta
+  * 3.1.1 Enterprise
+  * 3.0.1 Enterprise
+
+The AMP specifies that the minimum required version is 3.1. If you need to run the component on 3.0 Enterprise, you can edit the module.properties file in the AMP and change the minimum version to 3.0 and the component should work fine. If you need to run the component on 3D Labs, you'll have to do that, plus, if you want the activity feed to work, you'll have to regress the activity feed config to the method used in 3D Labs. If you don't know how to do that, file an issue and I'll dig the old config files out of SVN and post them.
+
 == Deployment ==
 
 This component is delivered in two parts. First, an AMP file is used to extend the repository tier with the Status component's content model and web scripts. Second, a ZIP file is used to deliver the Surf components to the Surf tier (Alfresco Share or your own custom Surf app).
