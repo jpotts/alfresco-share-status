@@ -124,7 +124,10 @@ if (typeof Optaros == "undefined" || !Optaros)
       {
          // update button 
          this.widgets.updateButton = Alfresco.util.createYUIButton(this, "update-button", this.updateButtonClick);
-         
+
+	 // turn the button on or off depending on what's sitting in the status field when the form is first init'd
+	 this.onStatusValueChange(Dom.get(this.id + '-statustext'));
+
          // prefix selection dropdown
          this.widgets.prefixSelect = Alfresco.util.createYUIButton(this, "prefix-button", this.onPrefixSelect,
          {
@@ -242,6 +245,24 @@ if (typeof Optaros == "undefined" || !Optaros)
          
          // kick off the processing
          this._updateStatus(statusData);
+
+      },
+
+      /**
+       * Used to toggle the updateButton depending on the presence of text
+       * in the status field.
+       */
+      onStatusValueChange: function MS_onStatusValueChange(field)
+      {
+	disabled = this.widgets.updateButton.get('disabled');
+	if (field.value.length == 0)
+	{
+	  if (!disabled) this.widgets.updateButton.set('disabled', true);
+	}
+	else
+	{
+	  if (disabled) this.widgets.updateButton.set('disabled', false);
+	}
       },
 
       /**
@@ -257,15 +278,17 @@ if (typeof Optaros == "undefined" || !Optaros)
             // remove wait message
             this.widgets.feedbackMessage.destroy();
 
+	    var statusField = Dom.get(this.id + '-statustext');
+
             // check whether the task is done, reset the form in this case
             if (statusData.isComplete)
             {
-               Dom.get(this.id + '-statustext').value = '';
+               statusField.value = '';
                Dom.get(this.id + '-done-checkbox').checked = false;
             }
             
-            // re-enable invite button
-            this.widgets.updateButton.set("disabled", false);
+            // enable/disable the update button
+            this.onStatusValueChange(statusField);
             
             // Fire a statusUpdated event
             YAHOO.Bubbling.fire("statusUpdated",

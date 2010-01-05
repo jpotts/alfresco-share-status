@@ -8,6 +8,7 @@
 .statuslist-container .statuslist
 {
    background-color: #f6fef5;
+   max-height: 400px;
    overflow-x: hidden;
    overflow-y: auto;
    position: relative !important;
