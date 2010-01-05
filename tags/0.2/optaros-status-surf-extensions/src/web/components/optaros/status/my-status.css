@@ -1,0 +1,31 @@
+div.statustext {
+	margin: 10px;
+}
+
+.statustext p {
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+.statustext .rel_left {
+	float:left;
+	position:relative;
+}
+
+.statustext .rel_right {
+	float:right;
+	position:relative;
+}
+
+.statustext .done {
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+div.statustext textarea {
+	width: 100%;
+}
+
+.moodicon {
+	padding: 0.2em;
+}
