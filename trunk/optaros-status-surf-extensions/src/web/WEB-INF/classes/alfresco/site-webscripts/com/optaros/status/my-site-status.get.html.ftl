@@ -25,12 +25,13 @@
 							${msg("prefix." + prefixes[0])}
 						</#if>
 						${msg("label.mystatus.suffix")}</button>
+				<!--DEBUG:${prefix_value} 1-->
 	         		<select id="${args.htmlid}-prefix-menu">
 	            			<#list prefixes as prefix>
-								<option value="${prefix}">${msg("label.mystatus.prefix")} ${msg("prefix." + prefix)}${msg("label.mystatus.suffix")}</option>
+								<option value="${prefix}" <#if prefix == prefix_value>SELECTED</#if>>${msg("label.mystatus.prefix")} ${msg("prefix." + prefix)}${msg("label.mystatus.suffix")}</option>
 	            			</#list>
 	         		</select>
-	         		<button id="${args.htmlid}-mood-button">
+	         		<button id="${args.htmlid}-mood-button">		                
 						${msg("label.mymood.prefix")} 
 						<#if mood_value?exists && mood_value != "">
 							<img src="${page.url.context}${msg("filepath.mood."+mood_value)}" alt="${msg("tooltip.mood."+mood_value)}" />
@@ -38,17 +39,19 @@
 							<img src="${page.url.context}${msg("filepath.mood.1")}" alt="${msg("tooltip.mood.1")}" />
 						</#if>
 						${msg("label.mymood.suffix")}</button>
-						<div id="${args.htmlid}-mood-menu" class="yuimenu">
-							<div class="bd">
-								<ul class="first-of-type">						
-								    <#list 0..msg("numberof.moods")?number-1 as mood>
-									<li value="${mood}" class="yuimenuitem"><a href="#" class="yuimenuitemlabel" title="${msg("tooltip.mood."+mood)}"> ${msg("label.mymood.prefix")} <img src="${page.url.context}${msg("filepath.mood."+mood)}" alt="${msg("tooltip.mood."+mood)}" border="0" class="moodicon"/> ${msg("label.mymood.suffix")}</a></li>
-								    </#list>  
-								</ul> 
-							</div>
-						</div>
+				<div id="${args.htmlid}-mood-menu" class="yuimenu">
+					<div class="bd">
+						<ul class="first-of-type">						
+						    <#list 0..msg("numberof.moods")?number-1 as mood>
+							<li value="${mood}" class="yuimenuitem">
+<a href="#" class="yuimenuitemlabel" title="${msg("tooltip.mood."+mood)}"> ${msg("label.mymood.prefix")} <img src="${page.url.context}${msg("filepath.mood."+mood)}" alt="${msg("tooltip.mood."+mood)}" border="0" class="moodicon"/> ${msg("label.mymood.suffix")}</a></li>
+						    </#list>  
+						</ul> 
+					</div>
+				</div>
+				
 				</p>
-
+				<script>function getOrigMoodValue() {return "${mood_value!''}";}</script>
 				<p>
 					<textarea id="${args.htmlid}-statustext" tabindex="101">${status_value}</textarea>
 				</p>

@@ -199,7 +199,8 @@ if (typeof Optaros == "undefined" || !Optaros)
 		 //we handle the first selected item different (=with extra caution)
 		 if (!prefixMenu.activeItem) 
 		 {
-			prefix = prefixMenu.srcElement.options[0].value;
+		   //prefix = prefixMenu.srcElement.options[0].value;
+		   prefix = prefixMenu.srcElement.options[prefixMenu.srcElement.selectedIndex].value
 		 }
 		 else 
 		 {
@@ -212,7 +213,8 @@ if (typeof Optaros == "undefined" || !Optaros)
 		 //we handle the first selected item different (=with extra caution)
 		 if (!moodMenu.activeItem) 
 		 {
-			mood = moodMenu.srcElement.value;
+		   //mood = moodMenu.srcElement.value;
+		   mood = getOrigMoodValue();
 		 }
 		 else 
 		 {
