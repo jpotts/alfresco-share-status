@@ -1,0 +1,8 @@
+<webscript>
+  <shortname>Site Status History</shortname>
+  <description>Returns all of the site's status history entries</description>
+  <url>/status/history/site</url>    
+  <family>site-dashlet</family>
+  <authentication>user</authentication>
+  <transaction>none</transaction>
+</webscript>
