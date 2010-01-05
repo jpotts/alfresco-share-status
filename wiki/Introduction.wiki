@@ -13,11 +13,21 @@ In addition, all status entries automatically post to the Alfresco activity serv
 
 In [http://labs.optaros.com/2009/02/19/enterprise-collaboration-alfresco-share-screencast-part-two this screencast] posted to [http://labs.optaros.com Optaros Labs], you can see how the component works.
 
+For a version history, see [ReleaseNotes Release Notes].
+
 = Details =
 
 == Requirements ==
 
-This component has been tested on the following Alfresco releases:
+The latest version of this component has been tested on the following Alfresco releases:
+
+ * Community/Labs Releases
+  * 3.2 Community
+ * Enterprise Releases
+  * 3.2 Enterprise
+  * 3.1.1 Enterprise
+
+Prior versions of the component are known to work with:
 
  * Community/Labs Releases
   * 3.2r Community
