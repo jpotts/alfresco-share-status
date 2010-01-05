@@ -1,8 +1,0 @@
-<webscript>
-  <shortname>My Site Status</shortname>
-  <description>Dashlet to displays/edit users status for a specific site</description>
-  <url>/status/mine/site</url>    
-  <family>site-dashlet</family>
-  <authentication>user</authentication>
-  <transaction>none</transaction>
-</webscript>

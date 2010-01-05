@@ -1,6 +1,0 @@
-<webscript>
-   <shortname>Status List</shortname>
-   <description>Used by several different status dashlets</description>
-   <url>/status/list</url>
-  <format default="json">argument</format>
-</webscript>

@@ -1,8 +1,0 @@
-<webscript>
-  <shortname>Global Status Summary</shortname>
-  <description>Returns all status entries</description>
-  <url>/status/global</url>    
-  <family>user-dashlet</family>
-  <authentication>user</authentication>
-  <transaction>none</transaction>
-</webscript>
