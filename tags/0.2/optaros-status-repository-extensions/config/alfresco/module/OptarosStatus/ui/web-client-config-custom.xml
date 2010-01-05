@@ -1,0 +1,14 @@
+<alfresco-config>
+
+	<config evaluator="node-type" condition="optStatus:status">
+		<property-sheet>		
+			<show-property name="optStatus:siteId" display-label-id="status_siteId" />
+			<show-property name="optStatus:message" display-label-id="status_message" />
+			<show-property name="optStatus:prefix" display-label-id="status_prefix" />
+			<show-property name="optStatus:mood" display-label-id="status_mood" />
+			<show-property name="optStatus:complete" display-label-id="status_complete" />
+			<show-property name="optStatus:user" display-label-id="status_user" />
+		</property-sheet>
+	</config>
+	
+</alfresco-config>

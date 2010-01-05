@@ -1,0 +1,8 @@
+<webscript>
+  <shortname>Post Status Entry</shortname>
+  <description>Updates (or creates) status entry for the specified site and user</description>
+  <url>/status/site/{siteId}/update</url>
+  <format default="json">argument</format>
+  <authentication>user</authentication>
+  <transaction>required</transaction>
+</webscript>
