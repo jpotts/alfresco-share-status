@@ -25,7 +25,6 @@
 							${msg("prefix." + prefixes[0])}
 						</#if>
 						${msg("label.mystatus.suffix")}</button>
-				<!--DEBUG:${prefix_value} 1-->
 	         		<select id="${args.htmlid}-prefix-menu">
 	            			<#list prefixes as prefix>
 								<option value="${prefix}" <#if prefix == prefix_value>SELECTED</#if>>${msg("label.mystatus.prefix")} ${msg("prefix." + prefix)}${msg("label.mystatus.suffix")}</option>
@@ -51,9 +50,9 @@
 				</div>
 				
 				</p>
-				<script>function getOrigMoodValue() {return "${mood_value!''}";}</script>
+				<script>function getOrigMoodValue() {return "<#if mood_value?exists && mood_value != "">${mood_value}<#else>1</#if>";}</script>
 				<p>
-					<textarea id="${args.htmlid}-statustext" tabindex="101">${status_value}</textarea>
+					<textarea id="${args.htmlid}-statustext" tabindex="101" onKeyUp="optaros.onStatusValueChange(this)">${status_value}</textarea>
 				</p>
 			
 				<p>
