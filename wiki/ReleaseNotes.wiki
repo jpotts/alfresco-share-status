@@ -1,0 +1,13 @@
+#summary Version history and release notes.
+
+= Release Notes =
+
+== 0.2 ==
+
+ * Resolved [http://code.google.com/p/alfresco-share-status/issues/detail?id=3 #3]. The update button is now disabled until you type in some status text.
+ * Resolved [http://code.google.com/p/alfresco-share-status/issues/detail?id=4 #4]. The list dashlets are now given a max height of 400px and will scroll after that. This won't work in MSIE 6 but works fine in MSIE 8, Chrome, and Firefox.
+ * Resolved [http://code.google.com/p/alfresco-share-status/issues/detail?id=5 #5]. You can now enter a status without setting a prefix or a mood and the defaults will be used correctly.
+
+== 0.1/0.1a ==
+
+Original release of this component.
