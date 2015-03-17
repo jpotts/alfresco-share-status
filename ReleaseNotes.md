@@ -1,0 +1,15 @@
+# Release Notes #
+
+## 0.2 ##
+
+  * Resolved [#3](http://code.google.com/p/alfresco-share-status/issues/detail?id=3). The update button is now disabled until you type in some status text.
+  * Resolved [#4](http://code.google.com/p/alfresco-share-status/issues/detail?id=4). The list dashlets are now given a max height of 400px and will scroll after that. This won't work in MSIE 6 but works fine in MSIE 8, Chrome, and Firefox.
+  * Resolved [#5](http://code.google.com/p/alfresco-share-status/issues/detail?id=5). You can now enter a status without setting a prefix or a mood and the defaults will be used correctly.
+
+I have incremented the version number in the AMP and tagged both the repository extensions and surf extensions, even though in this release, nothing in the repository extensions changed since the previous version. I figured going forward it would just be easier if the AMP and the surf extensions always had the same version number which are both the same as the version number in the AMP's module.properties.
+
+If you are upgrading from a previous version of this module, there is no need to upgrade the AMP unless you just want to.
+
+## 0.1/0.1a ##
+
+Original release of this component.
